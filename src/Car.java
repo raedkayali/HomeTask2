@@ -62,19 +62,13 @@ public class Car {
     public static void saveCarsToFile(ArrayList<Car> cars, String fileName) {
 
         try {
-            // Create a BufferedWriter to write to the file
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-
-            // Iterate through the ArrayList and write each element to the file
             for (Car car : cars) {
                 writer.write(car.toString());
-                writer.newLine(); // Add a newline after each element
+                writer.newLine(); 
             }
-
-            // Close the writer to save the changes
             writer.close();
-
-            System.out.println("ArrayList has been saved to " + fileName);
+            System.out.println("Array has been saved to " + fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,20 +102,13 @@ public class Car {
 
         saveCarsToFile(carsByBrand, "carsByBrand.txt");
 
-        // Save carsByBrand to text file
-
         ArrayList<Car> carsByModelAndYears = Car.getCarsByModelAndYears(cars, "X5", 5);
 
         saveCarsToFile(carsByModelAndYears, "carsByModelAndYears.txt");
-        // Save carsByModelAndYears to text file
-
+        
         ArrayList<Car> carsByYearAndPrice = Car.getCarsByYearAndPrice(cars, 2015, 20000);
 
         saveCarsToFile(carsByYearAndPrice, "carsByYearAndPrice.txt");
-        // Save carsByYearAndPrice to text file
-
-
-
 
     }
 }
